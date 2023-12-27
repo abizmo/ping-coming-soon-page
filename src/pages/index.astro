@@ -7,28 +7,52 @@ import FrontendMentorLayout from '../layouts/FrontendMentorLayout.astro'
   fontFamily='Libre Franklin'
   fontWeights={[300, 600, 700]}
 >
-  <div class='hero'>
-    <img src='./images/logo.svg' alt='Ping logo' class='logo' />
-    <h1>We are launching <span>soon!</span></h1>
-    <p>Subscribe and get notified</p>
-    <form>
-      <input type='email' placeholder='Your email address' />
+  <header class='header'>
+    <img src='./images/logo.svg' alt='Ping logo' class='header__logo' />
+  </header>
 
-      <button class='notify-btn'>Notify Me</button>
-    </form>
-  </div>
+  <main class='main'>
+    <section class='hero'>
+      <h1 class='hero__title'>
+        We are launching <span class='hero__title--highlight'>soon!</span>
+      </h1>
 
-  <img
-    src='./images/illustration-dashboard.png'
-    alt='Dashboard illustration'
-    class='illustration'
-  />
+      <p class='hero__description'>Subscribe and get notified</p>
 
-  <ul class='social-links'>
-    <li><a href='#'><i class='fa-brands fa-facebook-f'></i></a></li>
-    <li><a href='#'><i class='fab fa-twitter'></i></a></li>
-    <li><a href='#'><i class='fab fa-instagram'></i></a></li>
-  </ul>
+      <form class='form'>
+        <input
+          type='email'
+          placeholder='Your email address'
+          class='form__input'
+        />
+        <button class='form__button'>Notify Me</button>
+      </form>
 
-  <p class='copyright'>&copy; Copyright Ping. All rights reserved.</p>
+      <img
+        src='./images/illustration-dashboard.png'
+        alt='Dashboard illustration'
+        class='hero__illustration'
+      />
+    </section>
+
+    <ul class='socials' role='list'>
+      <li class='socials__item'>
+        <a href='#' class='socials__link'>
+          <i class='fa-brands fa-facebook-f'></i>
+        </a>
+      </li>
+      <li class='socials__item'>
+        <a href='#' class='socials__link'>
+          <i class='fab fa-twitter'></i>
+        </a>
+      </li>
+      <li class='socials__item'>
+        <a href='#' class='socials__link'>
+          <i class='fab fa-instagram'></i>
+        </a>
+      </li>
+    </ul>
+
+    <p class='copyright'>&copy; Copyright Ping. All rights reserved.</p>
+  </main>
 </FrontendMentorLayout>
