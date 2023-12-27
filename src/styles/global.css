@@ -6,10 +6,18 @@
   --clr-neutral-900: 209 33% 12%;
 
   --ff-sans: 'Libre Franklin', sans-serif;
-  --fs-400: 1.25rem;
+  --fs-900: 2rem;
+  --fs-400: 1.125rem;
   --fw-light: 300;
-  --fw-regular: 600;
+  --fw-regular: 500;
   --fw-bold: 700;
+}
+
+@media (min-width: 50em) {
+  :root {
+    --fs-900: 3rem;
+    --fs-400: 1.25rem;
+  }
 }
 
 *,
@@ -21,10 +29,12 @@
 html {
   font-family: var(--ff-sans);
   line-height: 1.7;
+  color: hsl(var(--clr-neutral-500));
 }
 
 body {
   margin: 0;
+  font-size: var(--fs-400);
 }
 
 img {
@@ -35,4 +45,9 @@ img {
 ul[role='list'] {
   list-style: none;
   padding: 0;
+}
+
+button,
+input {
+  font: inherit;
 }

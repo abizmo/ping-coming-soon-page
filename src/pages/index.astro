@@ -5,7 +5,7 @@ import FrontendMentorLayout from '../layouts/FrontendMentorLayout.astro'
 <FrontendMentorLayout
   title='Ping coming soon page'
   fontFamily='Libre Franklin'
-  fontWeights={[300, 600, 700]}
+  fontWeights={[300, 500, 700]}
 >
   <header class='header'>
     <img src='./images/logo.svg' alt='Ping logo' class='header__logo' />
@@ -17,12 +17,12 @@ import FrontendMentorLayout from '../layouts/FrontendMentorLayout.astro'
         We are launching <span class='hero__title--highlight'>soon!</span>
       </h1>
 
-      <p class='hero__description'>Subscribe and get notified</p>
+      <p class='hero__text'>Subscribe and get notified</p>
 
       <form class='form'>
         <input
           type='email'
-          placeholder='Your email address'
+          placeholder='Your email address...'
           class='form__input'
         />
         <button class='form__button'>Notify Me</button>
@@ -56,3 +56,76 @@ import FrontendMentorLayout from '../layouts/FrontendMentorLayout.astro'
     <p class='copyright'>&copy; Copyright Ping. All rights reserved.</p>
   </main>
 </FrontendMentorLayout>
+
+<style>
+  .header {
+    --margin: 6rem;
+    margin-block: var(--margin) calc(var(--margin) / 2);
+  }
+
+  .header__logo {
+    margin-inline: auto;
+  }
+
+  .hero {
+    text-align: center;
+  }
+
+  .hero__title {
+    font-weight: var(--fw-light);
+    font-size: var(--fs-900);
+    margin-bottom: 0;
+    line-height: 1;
+  }
+
+  .hero__title--highlight {
+    font-weight: var(--fw-bold);
+    color: hsl(var(--clr-neutral-900));
+  }
+
+  .hero__text {
+    font-weight: var(--fw-regular);
+    color: hsl(var(--clr-neutral-900));
+  }
+
+  .form {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-bottom: 4rem;
+  }
+
+  .form__input {
+    border: 1px solid hsl(var(--clr-blue-200));
+    border-radius: 9999px;
+    padding: 0.5em 1.5em;
+    font-weight: var(--fw-light);
+    flex: 1;
+  }
+
+  .form__input::placeholder {
+    color: hsla(var(--clr-blue-200) / 0.9);
+  }
+
+  .form__button {
+    border: 0;
+    border-radius: 9999px;
+    background-color: hsl(var(--clr-blue-400));
+    color: white;
+    padding: 0.5em 1.5em;
+    min-width: 14rem;
+    box-shadow: 0 25px 20px -20px hsla(var(--clr-blue-400) / 0.5);
+  }
+
+  @media (max-width: 50em) {
+    .form {
+      flex-direction: column;
+    }
+  }
+
+  @media (min-width: 50em) {
+    .form {
+      margin-bottom: 6rem;
+    }
+  }
+</style>
