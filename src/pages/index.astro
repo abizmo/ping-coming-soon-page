@@ -36,25 +36,27 @@ import FrontendMentorLayout from '../layouts/FrontendMentorLayout.astro'
         />
       </section>
 
-      <ul class='socials' role='list'>
-        <li class='socials__item'>
-          <a href='#' class='socials__link'>
-            <i class='fa-brands fa-facebook-f'></i>
-          </a>
-        </li>
-        <li class='socials__item'>
-          <a href='#' class='socials__link'>
-            <i class='fab fa-twitter'></i>
-          </a>
-        </li>
-        <li class='socials__item'>
-          <a href='#' class='socials__link'>
-            <i class='fab fa-instagram'></i>
-          </a>
-        </li>
-      </ul>
+      <footer class='footer'>
+        <ul class='socials' role='list'>
+          <li class='socials__item'>
+            <a href='#' class='socials__link'>
+              <i class='fa-brands fa-facebook-f'></i>
+            </a>
+          </li>
+          <li class='socials__item'>
+            <a href='#' class='socials__link'>
+              <i class='fab fa-twitter'></i>
+            </a>
+          </li>
+          <li class='socials__item'>
+            <a href='#' class='socials__link'>
+              <i class='fab fa-instagram'></i>
+            </a>
+          </li>
+        </ul>
 
-      <p class='copyright'>&copy; Copyright Ping. All rights reserved.</p>
+        <p class='copyright'>&copy; Copyright Ping. All rights reserved.</p>
+      </footer>
     </main>
   </div>
 </FrontendMentorLayout>
@@ -129,5 +131,35 @@ import FrontendMentorLayout from '../layouts/FrontendMentorLayout.astro'
     .form {
       margin-bottom: 6rem;
     }
+  }
+
+  .socials {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    margin-bottom: 2.5em;
+  }
+
+  .socials__link {
+    display: grid;
+    place-content: center;
+    height: 48px;
+    width: 48px;
+    border: 1px solid hsl(var(--clr-blue-400));
+    border-radius: 9999px;
+    color: hsl(var(--clr-blue-400));
+    text-decoration: none;
+    transition: all 300ms ease-in;
+  }
+
+  .socials__link:hover,
+  .socials__link:focus-visible {
+    background-color: hsl(var(--clr-blue-400));
+    color: white;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 8rem;
   }
 </style>
