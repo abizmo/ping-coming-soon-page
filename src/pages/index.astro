@@ -20,12 +20,15 @@ import FrontendMentorLayout from '../layouts/FrontendMentorLayout.astro'
 
         <p class='hero__text'>Subscribe and get notified</p>
 
-        <form class='form'>
-          <input
-            type='email'
-            placeholder='Your email address...'
-            class='form__input'
-          />
+        <form class='form' novalidate>
+          <div class='form__group'>
+            <input
+              type='email'
+              placeholder='Your email address...'
+              class='form__input'
+            />
+            <p class='form__error'></p>
+          </div>
           <button class='form__button'>Notify Me</button>
         </form>
 
@@ -94,9 +97,13 @@ import FrontendMentorLayout from '../layouts/FrontendMentorLayout.astro'
 
   .form {
     display: flex;
-    justify-content: center;
     gap: 1em;
     margin-bottom: 4rem;
+  }
+
+  .form__group {
+    width: 100%;
+    position: relative;
   }
 
   .form__input {
@@ -104,11 +111,31 @@ import FrontendMentorLayout from '../layouts/FrontendMentorLayout.astro'
     border-radius: 9999px;
     padding: 0.5em 1.5em;
     font-weight: var(--fw-light);
-    flex: 1;
+    width: 100%;
+    outline: none;
+  }
+
+  .form__input:focus {
+    border-color: hsl(var(--clr-blue-400));
   }
 
   .form__input::placeholder {
     color: hsla(var(--clr-blue-200) / 0.9);
+  }
+
+  .form__input--error,
+  .form__input--error:focus {
+    border-color: hsl(var(--clr-red-200));
+  }
+
+  .form__error {
+    color: hsl(var(--clr-red-200));
+    font-style: italic;
+    font-size: 14px;
+    top: 100%;
+    margin: 0;
+    text-align: left;
+    padding-left: 1.5em;
   }
 
   .form__button {
@@ -119,17 +146,28 @@ import FrontendMentorLayout from '../layouts/FrontendMentorLayout.astro'
     padding: 0.5em 1.5em;
     min-width: 14rem;
     box-shadow: 0 25px 20px -20px hsla(var(--clr-blue-400) / 0.5);
+    transition: opacity 200ms ease-in;
+  }
+
+  .form__button:hover,
+  .form__button:focus-visible {
+    opacity: 0.8;
   }
 
   @media (max-width: 50em) {
     .form {
       flex-direction: column;
+      height: 150px;
     }
   }
 
   @media (min-width: 50em) {
     .form {
       margin-bottom: 6rem;
+    }
+
+    .form__error {
+      position: absolute;
     }
   }
 
@@ -158,8 +196,33 @@ import FrontendMentorLayout from '../layouts/FrontendMentorLayout.astro'
     color: white;
   }
 
+  .copyright {
+    font-weight: var(--fw-light);
+  }
   .footer {
     text-align: center;
     margin-top: 8rem;
   }
 </style>
+
+<script>
+  const emailInput = document.querySelector('.form__input') as HTMLInputElement
+  const error = document.querySelector('.form__error') as HTMLElement
+
+  emailInput?.addEventListener('input', () => {
+    if (!validateEmail(emailInput.value)) {
+      error.innerText = 'Please provide a valid email address'
+      emailInput.classList.add('form__input--error')
+    } else {
+      error.innerText = ''
+      emailInput.classList.remove('form__input--error')
+    }
+  })
+
+  function validateEmail(email: string) {
+    const re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+    return re.test(email.toLowerCase())
+  }
+</script>
