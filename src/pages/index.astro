@@ -7,54 +7,56 @@ import FrontendMentorLayout from '../layouts/FrontendMentorLayout.astro'
   fontFamily='Libre Franklin'
   fontWeights={[300, 500, 700]}
 >
-  <header class='header'>
-    <img src='./images/logo.svg' alt='Ping logo' class='header__logo' />
-  </header>
+  <div class='wrapper'>
+    <header class='header'>
+      <img src='./images/logo.svg' alt='Ping logo' class='header__logo' />
+    </header>
 
-  <main class='main'>
-    <section class='hero'>
-      <h1 class='hero__title'>
-        We are launching <span class='hero__title--highlight'>soon!</span>
-      </h1>
+    <main class='main'>
+      <section class='hero'>
+        <h1 class='hero__title'>
+          We are launching <span class='hero__title--highlight'>soon!</span>
+        </h1>
 
-      <p class='hero__text'>Subscribe and get notified</p>
+        <p class='hero__text'>Subscribe and get notified</p>
 
-      <form class='form'>
-        <input
-          type='email'
-          placeholder='Your email address...'
-          class='form__input'
+        <form class='form'>
+          <input
+            type='email'
+            placeholder='Your email address...'
+            class='form__input'
+          />
+          <button class='form__button'>Notify Me</button>
+        </form>
+
+        <img
+          src='./images/illustration-dashboard.png'
+          alt='Dashboard illustration'
+          class='hero__illustration'
         />
-        <button class='form__button'>Notify Me</button>
-      </form>
+      </section>
 
-      <img
-        src='./images/illustration-dashboard.png'
-        alt='Dashboard illustration'
-        class='hero__illustration'
-      />
-    </section>
+      <ul class='socials' role='list'>
+        <li class='socials__item'>
+          <a href='#' class='socials__link'>
+            <i class='fa-brands fa-facebook-f'></i>
+          </a>
+        </li>
+        <li class='socials__item'>
+          <a href='#' class='socials__link'>
+            <i class='fab fa-twitter'></i>
+          </a>
+        </li>
+        <li class='socials__item'>
+          <a href='#' class='socials__link'>
+            <i class='fab fa-instagram'></i>
+          </a>
+        </li>
+      </ul>
 
-    <ul class='socials' role='list'>
-      <li class='socials__item'>
-        <a href='#' class='socials__link'>
-          <i class='fa-brands fa-facebook-f'></i>
-        </a>
-      </li>
-      <li class='socials__item'>
-        <a href='#' class='socials__link'>
-          <i class='fab fa-twitter'></i>
-        </a>
-      </li>
-      <li class='socials__item'>
-        <a href='#' class='socials__link'>
-          <i class='fab fa-instagram'></i>
-        </a>
-      </li>
-    </ul>
-
-    <p class='copyright'>&copy; Copyright Ping. All rights reserved.</p>
-  </main>
+      <p class='copyright'>&copy; Copyright Ping. All rights reserved.</p>
+    </main>
+  </div>
 </FrontendMentorLayout>
 
 <style>

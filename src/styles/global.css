@@ -51,3 +51,11 @@ button,
 input {
   font: inherit;
 }
+
+.wrapper {
+  --maxWidth: 50rem;
+  --padding: 1rem;
+
+  width: min(var(--maxWidth), 100% - (var(--padding) * 2));
+  margin-inline: auto;
+}
